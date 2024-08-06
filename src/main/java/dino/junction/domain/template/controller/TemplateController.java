@@ -27,7 +27,7 @@ public class TemplateController {
 
     @GetMapping("404")
     public ResponseEntity<Object> getTemplate404Test() throws BadRequestException {
-        Object object = templateService.templateService404Test();
+        Object object = templateService.templateServiceQueryTest();
         return CommonResponse.ResponseEntitySuccess(object);
     }
 

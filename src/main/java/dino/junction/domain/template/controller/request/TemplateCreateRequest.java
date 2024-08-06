@@ -16,6 +16,7 @@ import lombok.NoArgsConstructor;
 public class TemplateCreateRequest {
     @Schema(description = "template title", example = "title")
     @Size(max = 100)
-    @NotNull(message = "테스트입니당")
+    //@NotNull(message = "title is required")
+    @NotEmpty(message = "title is required")
     String title;
 }

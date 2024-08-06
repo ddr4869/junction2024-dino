@@ -3,6 +3,7 @@ package dino.junction.config.login.jwt;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.api.client.http.HttpStatusCodes;
 import dino.junction.common.model.CustomException;
+import dino.junction.common.model.ErrorCode;
 import dino.junction.common.model.ErrorResponse;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.ExpiredJwtException;
@@ -68,8 +69,8 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         response.setStatus(response.getStatus());
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
-        CustomException customException = new CustomException(HttpStatusCodes.STATUS_CODE_BAD_REQUEST, e.getMessage(), "JWT FILTER");
-        ResponseEntity<ErrorResponse> errorResponse = ErrorResponse.from(customException);
+        CustomException customException = new CustomException(HttpStatusCodes.STATUS_CODE_BAD_REQUEST, ErrorCode.INVALID_JWT_TOKEN, e.getMessage());
+        ResponseEntity<ErrorResponse> errorResponse = ErrorResponse.from(customException, "Jwt Filter");
         ObjectMapper mapper = new ObjectMapper();
         response.getWriter().write(mapper.writeValueAsString(errorResponse));
     }

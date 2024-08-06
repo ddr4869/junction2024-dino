@@ -51,7 +51,11 @@ public class ThreadLocalLogTrace implements LogTrace {
 
     @Override
     public String getTraceId() {
-        return traceIdHolder.get().getId();
+        if (traceIdHolder.get() == null) {
+            return null;
+        } else {
+            return traceIdHolder.get().getId();
+        }
     }
 
     private void complete(TraceStatus status, Exception e) {

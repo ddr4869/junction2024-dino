@@ -23,14 +23,14 @@ public class CustomException extends RuntimeException {
     private static final String RESPONSE_MESSAGE = "%d %s";
 
     private final int status;
+    private final ErrorCode code;
     private final String message;
-    private final String traceId;
     private final Time time;
 
-    public CustomException(int status, String message, String traceId) {
+    public CustomException(int status, ErrorCode code, String message) {
         this.status = status;
+        this.code = code;
         this.message = message;
-        this.traceId = traceId;
         this.time = new Time(System.currentTimeMillis());
     }
 }
