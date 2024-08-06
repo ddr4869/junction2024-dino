@@ -76,4 +76,4 @@ jobs:
               echo "[ junction-server is not running ]"
             fi
             
-            sudo docker run -d --name junction-server -p ${{ secrets.SERVER_PORT }}:${{ secrets.SERVER_PORT }} junction-server
+            sudo docker run -d --name junction-server -p 8080:8080 junction-server
