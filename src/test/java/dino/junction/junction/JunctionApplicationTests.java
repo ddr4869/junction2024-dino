@@ -12,13 +12,4 @@ import org.springframework.context.annotation.Import;
 @SpringBootTest
 @Import(LogAop.class)
 class JunctionApplicationTests {
-	@Autowired
-	TemplateService templateService;
-	@Autowired
-	TemplateRepository templateRepository;
-
-	@Test
-	void checkTemplateServiceAopTest() {
-
-	}
 }
