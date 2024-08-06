@@ -4,7 +4,7 @@ spring:
 
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/Junction-Dino
+    url: jdbc:postgresql://junction_db:5432/main
     username: postgres
     password: 1234
 
