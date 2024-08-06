@@ -3,8 +3,8 @@ spring:
     name: Junction-Dino
 
   datasource:
-    driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://junction_db:5432/main
+    driver-class-name: org.hibernate.dialect.PostgreSQLDialect
+    url: jdbc:postgresql://db:5432/main
     username: postgres
     password: 1234
 
