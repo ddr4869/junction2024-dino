@@ -64,16 +64,16 @@ jobs:
           script: |
             docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
             sudo docker system prune -a -f
-            docker pull ${{ secrets.DOCKER_USERNAME }}/junction:latest
-            docker tag ${{ secrets.DOCKER_USERNAME }}/junction:latest junction-server
+            sudo docker pull ${{ secrets.DOCKER_USERNAME }}/junction:latest
+            sudo docker tag ${{ secrets.DOCKER_USERNAME }}/junction:latest junction-server
             
-            if [ "$(docker ps -aq -f name=junction-server)" ]
+            if [ "$(sudo docker ps -aq -f name=junction-server)" ]
             then
               echo "[ junction-server is running ]"
-              docker stop junction-server
-              docker rm junction-server
+              sudo docker stop junction-server
+              sudo docker rm junction-server
             else
               echo "[ junction-server is not running ]"
             fi
             
-            docker run -d --name junction-server -p ${{ secrets.SERVER_PORT }}:${{ secrets.SERVER_PORT }} junction-server
+            sudo docker run -d --name junction-server -p ${{ secrets.SERVER_PORT }}:${{ secrets.SERVER_PORT }} junction-server
