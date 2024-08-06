@@ -63,7 +63,7 @@ jobs:
           port: ${{ secrets.SSH_PORT }}
           script: |
             docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
-            docker system prune -a
+            sudo docker system prune -a -f
             docker pull ${{ secrets.DOCKER_USERNAME }}/junction:latest
             docker tag ${{ secrets.DOCKER_USERNAME }}/junction:latest junction-server
             
