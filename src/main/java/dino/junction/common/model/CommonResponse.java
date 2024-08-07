@@ -31,7 +31,7 @@ public record CommonResponse<T>(
         return CommonResponse.builder().status(200).code("SUCCESS").message("OK").data("SUCCESS").build();
     }
 
-    public static ResponseEntity<Object> ResponseEntitySuccess(Object data) {
+    public static ResponseEntity<Object> of(Object data) {
         return ResponseEntity.status(200).body(CommonResponseSuccess(data));
     }
 }
