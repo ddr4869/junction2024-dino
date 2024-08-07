@@ -1,15 +1,8 @@
 package dino.junction.common.model;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
-import dino.junction.common.logger.aop.LogTrace;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Builder;
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.FieldError;
-
-import java.util.List;
 
 @Builder
 @Schema(description = "Success Response")
